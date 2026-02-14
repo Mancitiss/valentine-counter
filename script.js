@@ -125,20 +125,33 @@ envelope.addEventListener('click', () => {
 });
 
 /* ========================================
-   Countdown to midnight
+   Countdown to end of Valentine's Day
    ======================================== */
 const countdownText = document.getElementById('countdown-text');
 
+// Fixed deadline: end of Feb 14 in local time
+function getValentineDeadline() {
+  const now = new Date();
+  const year = now.getFullYear();
+  // If it's Jan, use current year; if past Feb 14, it's already over
+  const deadline = new Date(year, 1, 14, 23, 59, 59, 999); // month is 0-indexed
+  return deadline;
+}
+
+function isValentineOver() {
+  return new Date() > getValentineDeadline();
+}
+
 function startCountdown() {
+  const deadline = getValentineDeadline();
+
   function update() {
     const now = new Date();
-    const endOfDay = new Date(now);
-    endOfDay.setHours(23, 59, 59, 999);
-    const diff = endOfDay - now;
+    const diff = deadline - now;
 
     if (diff <= 0) {
       countdownText.textContent = "Valentine's Day has ended… but love never does 💕";
-      return;
+      return; // stop the loop
     }
 
     const h = Math.floor(diff / 3600000);
@@ -156,6 +169,14 @@ function startCountdown() {
     requestAnimationFrame(update);
   }
   update();
+}
+
+// If Valentine's is already over on page load, skip the envelope and show the message directly
+if (isValentineOver()) {
+  envelope.style.display = 'none';
+  messageContainer.classList.remove('hidden');
+  messageContainer.classList.add('revealing');
+  startCountdown(); // will immediately show the "ended" message
 }
 
 /* ========================================
