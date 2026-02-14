@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Valentine's Day 💕</title>
+  <meta name="description" content="An interactive Valentine's Day experience with floating hearts and love.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="hearts-canvas"></canvas>
+
+  <div class="vignette"></div>
+
+  <div class="content-wrapper">
+    <!-- Floating sparkles -->
+    <div class="sparkle sparkle-1">✦</div>
+    <div class="sparkle sparkle-2">✧</div>
+    <div class="sparkle sparkle-3">✦</div>
+    <div class="sparkle sparkle-4">✧</div>
+    <div class="sparkle sparkle-5">✦</div>
+
+    <!-- Main card -->
+    <main class="card" id="main-card">
+      <div class="card-inner">
+        <div class="card-glow"></div>
+        
+        <div class="envelope" id="envelope">
+          <div class="envelope-body">
+            <div class="envelope-flap"></div>
+            <div class="envelope-heart">💌</div>
+          </div>
+          <p class="envelope-hint">click me</p>
+        </div>
+
+        <div class="message-container hidden" id="message-container">
+          <div class="hearts-burst" id="hearts-burst"></div>
+          
+          <h1 class="title">
+            <span class="title-line">Happy</span>
+            <span class="title-line accent">Valentine's</span>
+            <span class="title-line">Day</span>
+          </h1>
+
+          <div class="divider">
+            <span class="divider-heart">♥</span>
+          </div>
+
+          <p class="poem">
+            <span class="poem-line">Roses are <em class="red">red</em>,</span>
+            <span class="poem-line">Violets are <em class="blue">blue</em>,</span>
+            <span class="poem-line">This page was coded with love,</span>
+            <span class="poem-line">Just in time — for <em class="accent-text">you</em>.</span>
+          </p>
+
+          <div class="time-remaining" id="time-display">
+            <span class="clock-icon">🕛</span>
+            <span id="countdown-text"></span>
+          </div>
+
+          <button class="love-btn" id="love-btn">
+            <span class="btn-text">Send Love</span>
+            <span class="btn-hearts">💕</span>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>made with <span class="footer-heart">♥</span> & javascript</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
